@@ -19,15 +19,15 @@ def all_solutions(x_values, y_values):
             fun = (1 -x_value)**2 + 100*(y_value - x_value**2)**2
             rosen[(x_value, y_value)] = fun
     
-    max_value = float('-inf')
-    max_point = None
+    min_value = float('inf')
+    min_point = None
 
     for key, value in rosen.items():
-        if value > max_value:
-            max_value = value
-            max_point = key
+        if value < min_value:
+            min_value = value
+            min_point = key 
 
-    print(f"Maximum value: {max_value} at (x, y) = {max_point}")
+    print(f"Minimum value: {min_value} at (x, y) = {min_point}")
     return rosen
 
 all_solutions(x_values=x_values, y_values=y_values) 
