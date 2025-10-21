@@ -13,7 +13,7 @@ def all_solutions(x_values, y_values):
     rosen = []
     for x_value in x_values:
         for y_value in y_values: 
-            fun = (1 -x_value)**2 + 100(y_value - x_value)**2 
+            fun = (1 -x_value)**2 + 100(y_value - x_value**2)**2
             rosen.append(fun) 
     
     max = 0
