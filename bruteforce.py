@@ -12,7 +12,7 @@ x_values = [-2, -1 , 0, 1, 2]
 y_values = [-1, 0, 1 , 2, 3]
 
 
-def all_solutions(x_values, y_values):
+def brute_force(x_values, y_values):
     rosen = dict()
     for x_value in x_values:
         for y_value in y_values: 
@@ -30,4 +30,4 @@ def all_solutions(x_values, y_values):
     print(f"Minimum value: {min_value} at (x, y) = {min_point}")
     return rosen
 
-all_solutions(x_values=x_values, y_values=y_values) 
+brute_force(x_values=x_values, y_values=y_values) 
