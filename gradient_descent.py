@@ -15,29 +15,43 @@ def df(x,y):
 
     return df_dx , df_dy
 
-def gradient_descent_multivariate_corrected(x_init, y_init, learning_rate, num_iterations):
+def gradient_descent_multivariate(x_init, y_init, learning_rate, num_iterations):
 
-    params = np.array([x_init, y_init], dtype=float) # Ensure float type
-    history = [params.copy()] 
+    params = np.array([x_init, y_init], dtype=float) # Current (x, y) point
+    
+    
+    x_history = [x_init]
+    y_history = [y_init]
+    
+    
+    # history = [params.copy()] 
 
     for i in range(num_iterations):
         
+        
         x_current, y_current = params[0], params[1] 
         
-       
+        
         gradient = np.array(df(x_current, y_current), dtype=float)
         
-      
+        
         params -= learning_rate * gradient
         
        
-        history.append(params.copy())
+        x_history.append(params[0])
+        y_history.append(params[1])
 
-    #print(history[num_iterations])
-    return params, history
+    # Return the final parameters and the two history lists
+    return params, x_history, y_history
 
-
-final_params, history = gradient_descent_multivariate_corrected(-2.0, -1.0, 0.001, 10000)
+final_params, x_history, y_history = gradient_descent_multivariate(-2.0, -1.0, 0.001, 1)
 
 print(f'the final parameters = {final_params}')
 print(f"history = {history}")
+
+
+"""
+plt.figure()
+
+plt.plot()
+"""
