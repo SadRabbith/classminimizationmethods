@@ -13,14 +13,9 @@ plt.pcolormesh(X, Y, z, norm='log', vmin=1e-3)
 c = plt.colorbar()
 plt.show()
 #%%
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import rosen
-
 def nelder_mead(func, max_iter=500):
     """ 
     func: rosen function
-
     """
     alpha=1.0
     gamma=2.0
