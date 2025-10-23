@@ -8,9 +8,14 @@ import statistics
 
 #2D rosenbrock => f(x,y) = (1-x)**2 +100(y-x)**2
 
-x_values = [-2, -1 , 0, 1, 2]
-y_values = [-1, 0, 1 , 2, 3]
+x_min, x_max = -2.0, 2.0
+y_min, y_max = -1.0, 3.0
 
+
+N_DIVISIONS = 50 
+
+x_values = np.linspace(x_min, x_max, N_DIVISIONS)
+y_values = np.linspace(y_min, y_max, N_DIVISIONS)
 
 def brute_force(x_values, y_values):
     rosen = dict()

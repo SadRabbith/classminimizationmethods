@@ -15,16 +15,29 @@ def df(x,y):
 
     return df_dx , df_dy
 
-def gradient_descent_multivariate(x_init, y_init ,  learning_rate , num_iterations):
-    """
-    Performs gradient descent to minimize a multivariate function.
-    """
-    params = np.array(x_init, y_init, dtype=float) # Ensure float type
-    history = [params.copy()] # Store history of parameters
+def gradient_descent_multivariate_corrected(x_init, y_init, learning_rate, num_iterations):
+
+    params = np.array([x_init, y_init], dtype=float) # Ensure float type
+    history = [params.copy()] 
 
     for i in range(num_iterations):
-        gradient = df(x_init, y_init)
+        
+        x_current, y_current = params[0], params[1] 
+        
+       
+        gradient = np.array(df(x_current, y_current), dtype=float)
+        
+      
         params -= learning_rate * gradient
+        
+       
         history.append(params.copy())
 
+    #print(history[num_iterations])
     return params, history
+
+
+final_params, history = gradient_descent_multivariate_corrected(-2.0, -1.0, 0.001, 10000)
+
+print(f'the final parameters = {final_params}')
+print(f"history = {history}")
