@@ -81,7 +81,6 @@ def nelder_mead(func, max_iter=500):
     return triangle[0], func(triangle[0]), iteration
 
 # impliment on rosen func
-x_start = np.array([-2, 2.0])
 xmin, fmin, iters = nelder_mead(rosen)
 
 print(f"Minimum found at {xmin} after {iters} iterations")
